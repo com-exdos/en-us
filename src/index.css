@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-white font-inter;
+    background: radial-gradient(circle at center, #1a1a2e 0%, #000000 100%);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-orbitron;
+  }
+}
+
+@layer components {
+  .neon-border {
+    @apply relative;
+    box-shadow: 0 0 10px #4f46e5, 0 0 20px #4f46e5, 0 0 30px #4f46e5;
+  }
+
+  .cyber-button {
+    @apply bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg 
+           font-orbitron transition-all duration-300 relative overflow-hidden
+           border border-indigo-400 shadow-lg;
+  }
+
+  .cyber-button::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent
+           -translate-x-full hover:translate-x-full transition-transform duration-700;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 10px #4f46e5, 0 0 20px #4f46e5, 0 0 30px #4f46e5;
+    }
+    to {
+      text-shadow: 0 0 20px #4f46e5, 0 0 30px #4f46e5, 0 0 40px #4f46e5;
+    }
+  }
+}
